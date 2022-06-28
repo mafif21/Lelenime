@@ -1,19 +1,31 @@
 import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+import Cari from "./components/Cari/Cari";
+import Complete from "./components/Complete/Complete";
 import Homepage from "./components/Homepage/Homepage";
-import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
     <div className="App">
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="profile">Profile</Link>
-      </nav>
+      <div className="topbar">
+        <h1>Lelenime</h1>
+        <nav className="nav">
+          <Link className="nav-link" to="/">
+            home
+          </Link>
+          <Link className="nav-link" to="complete">
+            complete
+          </Link>
+          <Link className="nav-link" to="cari">
+            find
+          </Link>
+        </nav>
+      </div>
 
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
-        <Route path="profile" element={<Profile />}></Route>
+        <Route path="complete" element={<Complete />}></Route>
+        <Route path="cari" element={<Cari />}></Route>
       </Routes>
     </div>
   );

@@ -1,30 +1,29 @@
 import { useEffect, useState } from "react";
-import "./Homepage.css";
 
-const Homepage = () => {
-  const [onGoing, setOngoing] = useState([]);
+const Complete = () => {
+  const [complete, setComplete] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function getAnime() {
-      const request = await fetch("https://otakudesu-api.herokuapp.com/api/home");
-      const response = await request.json();
-      const ongoing = response.home.on_going;
-      setOngoing(ongoing);
+    async function getComplete() {
+      const request = await fetch("https://otakudesu-api.herokuapp.com/api/complete");
+      const data = await request.json();
+      setComplete(data.animeList);
       setLoading(false);
     }
-    getAnime();
+
+    getComplete();
   }, []);
 
   return (
     <section className="section">
       <div className="title">
-        <h2>Anime Ongoing</h2>
+        <h2>Anime Complete</h2>
       </div>
 
       {!loading ? (
         <div className="cards">
-          {onGoing.map(anime => {
+          {complete.map(anime => {
             return (
               <div className="card" key={anime.id}>
                 <img className="img-anime" src={anime.thumb} alt={anime.title} />
@@ -57,4 +56,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default Complete;
