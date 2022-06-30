@@ -1,0 +1,38 @@
+.informations {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 20px;
+}
+
+.img-info {
+  margin: auto;
+}
+
+.top,
+.maker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top > p {
+  color: yellow;
+}
+
+.ongoing-anime {
+  color: green !important;
+}
+
+.complete {
+  color: red;
+}
+
+.back {
+  margin-top: 20px;
+  /* border: 1px solid white; */
+}
+
+svg {
+  width: 50px;
+  color: white;
+}

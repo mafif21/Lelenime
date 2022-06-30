@@ -2,6 +2,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import Cari from "./components/Cari/Cari";
 import Complete from "./components/Complete/Complete";
+import Detail from "./components/Detail/Detail";
 import Homepage from "./components/Homepage/Homepage";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<Homepage />}></Route>
         <Route path="complete" element={<Complete />}></Route>
         <Route path="cari" element={<Cari />}></Route>
+        <Route path="/cari/detail/:id" element={<Detail />}></Route>
       </Routes>
     </div>
   );

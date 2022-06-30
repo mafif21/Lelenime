@@ -2,10 +2,11 @@
   display: flex;
   justify-content: center;
   margin: 20px auto;
+  height: 50px;
 }
 
 .input {
-  width: 50%;
+  width: 80%;
   border: none;
   border-radius: 8px 0px 0px 8px;
   outline: none;
@@ -16,6 +17,15 @@
   padding: 10px 30px;
   border: none;
   border-radius: 0px 8px 8px 0px;
+  background-color: #1a4d2e;
+  color: white;
+  font-weight: bold;
+  transition: ease-in-out 50ms;
+}
+
+.button:active {
+  background-color: orange;
+  color: white;
 }
 
 .section {
@@ -61,4 +71,12 @@
 .realease span,
 .genre span {
   color: orange;
+}
+
+.bottom {
+  display: flex;
+}
+
+.bottom > h5 {
+  margin-right: 20px;
 }
