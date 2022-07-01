@@ -1,5 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
 .section {
   padding: 0px 50px;
+  margin-bottom: 50px;
 }
 
 .cards {

@@ -17,7 +17,7 @@ const Cari = () => {
   }
 
   return (
-    <section>
+    <section className="section">
       <div className="pencarian">
         <input className="input" placeholder="cari anime yang anda inginkan" type="text" onChange={eve => setAnime(eve.target.value)} />
         <button className="button" onClick={() => cariAnime()}>
