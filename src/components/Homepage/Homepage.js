@@ -6,6 +6,7 @@ const Homepage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    document.title = "Home";
     async function getAnime() {
       const request = await fetch("https://otakudesu-api.herokuapp.com/api/home");
       const response = await request.json();

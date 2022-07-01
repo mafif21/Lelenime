@@ -1,10 +1,15 @@
 import { useState } from "react";
 import "./Cari.css";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Cari = () => {
   const [anime, setAnime] = useState("");
   const [animeList, setAnimeList] = useState([]);
+
+  useEffect(() => {
+    document.title = "Cari";
+  }, []);
 
   async function cariAnime() {
     if (anime === undefined && anime === "") {

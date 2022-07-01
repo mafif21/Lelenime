@@ -9,6 +9,7 @@ const Detail = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    document.title = "Detail";
     async function getInfo() {
       const request = await fetch(`https://otakudesu-api.herokuapp.com/api/anime/${params.id}`);
       if (!request.ok) {
@@ -20,7 +21,7 @@ const Detail = () => {
     }
 
     getInfo();
-  });
+  }, []);
 
   if (error) {
     return <h1>Data ksoong</h1>;

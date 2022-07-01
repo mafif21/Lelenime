@@ -5,6 +5,7 @@ const Complete = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    document.title = "Complete";
     async function getComplete() {
       const request = await fetch("https://otakudesu-api.herokuapp.com/api/complete");
       const data = await request.json();
