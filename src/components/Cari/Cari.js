@@ -7,9 +7,13 @@ const Cari = () => {
   const [animeList, setAnimeList] = useState([]);
 
   async function cariAnime() {
-    const request = await fetch(`https://otakudesu-api.herokuapp.com/api/search/${anime}`);
-    const data = await request.json();
-    setAnimeList(data.search_results);
+    if (anime === undefined && anime === "") {
+      console.log("error");
+    } else {
+      const request = await fetch(`https://otakudesu-api.herokuapp.com/api/search/${anime}`);
+      const data = await request.json();
+      setAnimeList(data.search_results);
+    }
   }
 
   return (
@@ -22,39 +26,41 @@ const Cari = () => {
       </div>
 
       <div className="cards">
-        {animeList.map(anime => {
-          return (
-            <div className="card" key={anime.id}>
-              <img className="img-anime" src={anime.thumb} alt={anime.title} />
+        {animeList === undefined && <h5 className="if-Error">Tolong Masukan Nama Anime!!!</h5>}
+        {animeList !== undefined &&
+          animeList.map(anime => {
+            return (
+              <div className="card" key={anime.id}>
+                <img className="img-anime" src={anime.thumb} alt={anime.title} />
 
-              <div className="content">
-                <div className="head">
-                  <h4 className="judul-anime">{anime.title}</h4>
-                  <p className="realease">
-                    Rating <span>{anime.score}</span>
-                  </p>
-                  <p className="genre">
-                    Genre{" "}
-                    {anime.genre_list.map(genre => {
-                      return <span key={genre.genre_id}>{genre.genre_title}, </span>;
-                    })}
-                  </p>
-                </div>
+                <div className="content">
+                  <div className="head">
+                    <h4 className="judul-anime">{anime.title}</h4>
+                    <p className="realease">
+                      Rating <span>{anime.score}</span>
+                    </p>
+                    <p className="genre">
+                      Genre{" "}
+                      {anime.genre_list.map(genre => {
+                        return <span key={genre.genre_id}>{genre.genre_title}, </span>;
+                      })}
+                    </p>
+                  </div>
 
-                <div className="bottom">
-                  <h5>
-                    <Link to={`/cari/detail/${anime.id.replace("https://otakudesu.watch/anime/", "")}`}>Detail</Link>
-                  </h5>
-                  <h5>
-                    <a href={anime.link} target="_blank" rel="noreferrer">
-                      Watch here
-                    </a>
-                  </h5>
+                  <div className="bottom">
+                    <h5>
+                      <Link to={`/cari/detail/${anime.id.replace("https://otakudesu.watch/anime/", "")}`}>Detail</Link>
+                    </h5>
+                    <h5>
+                      <a href={anime.link} target="_blank" rel="noreferrer">
+                        Watch here
+                      </a>
+                    </h5>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </section>
   );
